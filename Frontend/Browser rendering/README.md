@@ -15,9 +15,7 @@
 
 추가로
 `translate` → 리페인트, 리플로우 모두 X (가능하면 이걸로 사용)
-
 `left, right`  → 리플로우 발생
-
 `backgroundColor, opacity` → 리페인트 발생
 ```
 
