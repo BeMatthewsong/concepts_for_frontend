@@ -1,44 +1,39 @@
 # 브라우저의 렌더링
 
-### Real DOM(Document Object Model)
+### ⭐️ 요약
+```
+브라우저의 렌더링은 Parsing -> Style -> Layout -> Paint -> (Reflow or Repaint) 단계로 진행됩니다.
+1. Parsing 단계에서 DOM, CSSOM 생성합니다.
+2. Style 단계에서는 DOM과 CSSOM을 결합하여 Render Tree를 생성합니다.
+3. Layout 단계에서는 렌더 트리를 레이아웃을 실행시켜 각 노드의 위치, 크기와 같은 기하학적 형태를 계산합니다.
+4. Paint 단계에서는 각 노드를 화면에 레이아웃과 무관한 CSS를 적용하여 화면에 그립니다.
+5. 렌더 트리의 변화에 따라 리플로우 및 리페인트 단계를 실행합니다.
 
-브라우저는 문자열 형식의 HTML을 곧바로 이해할 수 없기 때문에, 브라우저가 이해할 수 있도록 변환이 필요하다. DOM은 브라우저 렌덜이 엔진의 HTML parser에 의해 생성된 **‘트리 구조의 Node 객체 모델’** 이다.
-
-정의에 Model 이 들어가는 것처럼, DOM은 HTML, XML 문서의 프로그래밍 interface이다. DOM은 프로그래밍 언어가 DOM구조에 접근할 수 있는 방법을 제공하여 그들이 문서 구조, 스타일, 내용등을 변경할 수 있게 돕는다.
-
-**DOM의 목적**
-
-→ JS를 사용하여 문서에 대한 추가, 삭제, 이벤트 처리를 처리하는 인터페이스를 제공하는 것
-
-DOM 또한 객체이기 때문에 상속관계로 이루어져있다.
-
-예를 들어, img 엘리먼트에 disable 속성이 안들어가는 이유는 HTMLInputElement에만 disabled property가 있기 때문이다.
-
-![make DOM tree](https://user-images.githubusercontent.com/55905801/164891080-a63a6f24-9d7f-41f8-a4ae-41f5482f5bab.png)
+브라우저의 성능 저하를 막기 위해서는 리플로우와 리페인트 단계를 줄여야 합니다.
+예를 들어, 리플로우를 막기 위해 레이아웃에 잦은 변화를 주는 요소를 fixed나 absolute로 포지션을 줄 수 있는 방법이 있습니다.
+```
 
 ### 렌더링 과정
 
 1. DOM 트리 생성 (HTML parser에 의한 DOM Tree)
-2. Style Rules 생성 (CSS parser에 의한 Rules 생성) (1 과 병렬적으로 작동)
-3. DOM트리 + Style Rules 접합 및 Render Tree 생성
+2. CSSOM 생성 (CSS parser에 의한 CSSOM 생성) (1 과 병렬적으로 작동)
+3. DOM트리 + CSSOM 접합 및 Render Tree 생성
 
    → display: none; 과 같은 속성은 화면에서 공간을 차지하지 않기 때문에 렌더 트리에서 제외됨
-
-4. Layout (Reflow)
+5. Layout (Reflow)
 
    → 뷰포트 내의 각 노드들의 정확한 위치와 크기 계산
 
    → %, vh, vw와 같이 상대적인 위치, 크기를 실제 화면에 그려지는 px 단위로 변환하는 과정
-
-5. Paint
+7. Paint
 
    → Layout 과정이 완료되면 요소들의 위치, 크기, 스타일 계산이 완료된 렌더트리 존재
 
    → 렌더트리 이용하여 브라우저는 요소들을 실제 화면에 그린다.
 
    → backgroud-color, color 등의 경우에는 빠르게 painting 되지만, 그라데이션, 그림자 효과 등 복잡한 스타일은 Painting 소요시간이 비교적 오래걸린다.
-
-6. 렌더트리의 변화
+   
+9. 렌더트리의 변화
 
    → 특정 이벤트에 따라 HTML 요소의 크기, 위치 등이 변경되면 영향받는 자식 노드, 부모 노드 들을 포함하여 Layout을 다시 수행한다.
 
