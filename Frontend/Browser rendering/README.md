@@ -3,6 +3,7 @@
 ### ⭐️ 요약
 ```
 브라우저의 렌더링은 Parsing -> Style -> Layout -> Paint -> (Reflow or Repaint) 단계로 진행됩니다.
+
 1. Parsing 단계에서 서버로부터 받은 HTML, CSS 파일로 DOM, CSSOM을 생성합니다.
 2. Style 단계에서는 DOM과 CSSOM을 결합하여 Render Tree를 생성합니다.
 3. Layout 단계에서는 렌더 트리를 레이아웃을 실행시켜 각 노드의 위치, 크기와 같은 기하학적 형태를 계산합니다.
