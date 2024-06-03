@@ -27,3 +27,15 @@ console.log(inc()); // 1
 console.log(inc()); // 2
 console.log(inc()); // 3
 ```
+
+```javascript
+function outer() {
+  var a = 2;
+  function inner() {
+    console.log(a);
+  }
+  return inner;
+}
+var func = outer();
+func(); // 2
+```
