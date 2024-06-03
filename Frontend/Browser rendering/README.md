@@ -21,17 +21,17 @@
 
 ### 렌더링 과정
 
-1. DOM 트리 생성 (HTML parser에 의한 DOM Tree)
-2. CSSOM 생성 (CSS parser에 의한 CSSOM 생성) (1 과 병렬적으로 작동)
-3. DOM트리 + CSSOM 접합 및 Render Tree 생성
+1. **DOM 트리 생성** (HTML parser에 의한 DOM Tree)
+2. **CSSOM 생성** (CSS parser에 의한 CSSOM 생성) (1 과 병렬적으로 작동)
+3. **DOM트리 + CSSOM 접합 및 Render Tree 생성**
 
    → display: none; 과 같은 속성은 화면에서 공간을 차지하지 않기 때문에 렌더 트리에서 제외됨
-5. Layout (Reflow)
+5. **Layout (Reflow)**
 
    → 뷰포트 내의 각 노드들의 정확한 위치와 크기 계산
 
    → %, vh, vw와 같이 상대적인 위치, 크기를 실제 화면에 그려지는 px 단위로 변환하는 과정
-7. Paint
+7. **Paint**
 
    → Layout 과정이 완료되면 요소들의 위치, 크기, 스타일 계산이 완료된 렌더트리 존재
 
@@ -39,7 +39,7 @@
 
    → backgroud-color, color 등의 경우에는 빠르게 painting 되지만, 그라데이션, 그림자 효과 등 복잡한 스타일은 Painting 소요시간이 비교적 오래걸린다.
    
-9. 렌더트리의 변화
+9. **렌더트리의 변화**
 
    → 특정 이벤트에 따라 HTML 요소의 크기, 위치 등이 변경되면 영향받는 자식 노드, 부모 노드 들을 포함하여 Layout을 다시 수행한다.
 
