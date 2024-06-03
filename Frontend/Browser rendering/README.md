@@ -23,7 +23,9 @@
 
 1. **DOM 트리 생성** (HTML parser에 의한 DOM Tree)
 2. **CSSOM 생성** (CSS parser에 의한 CSSOM 생성) (1 과 병렬적으로 작동)
-3. **DOM트리 + CSSOM 접합 및 Render Tree 생성**
+
+   -> Javascript를 실행합니다. (HTML 중간에 스크립트가 있다면 HTML 파싱이 중단됩니다.)
+4. **DOM트리 + CSSOM 접합 및 Render Tree 생성**
 
    → display: none; 과 같은 속성은 화면에서 공간을 차지하지 않기 때문에 렌더 트리에서 제외됨
 5. **Layout (Reflow)**
