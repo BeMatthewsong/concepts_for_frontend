@@ -14,6 +14,8 @@ title:	요소에 관한 제목을 지정한다.
 ## 느낀 점
 여기서 id, class, style 만 알았었는데 tabindex, title, lang 은 유용하게 쓰일 것 같다.
 
+tabinde는 ux 향상, title, lang은 seo 향상
+
 ## tabindex
 
 ### tabindex = 0
